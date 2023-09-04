@@ -18,7 +18,7 @@ const About = () => {
             });
             const data = await res.json();
             console.log(data);
-            setUserData(data);
+            // setUserData(data);
 
             if (!res.status === 200) {
                 const err = new Error(res.err);
