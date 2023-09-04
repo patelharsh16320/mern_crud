@@ -17,8 +17,8 @@ const About = () => {
                 credentials: "include"
             });
             const data = await res.json();
-            console.log(data);
-            setUserData(data);
+            // console.log(data);
+            // setUserData(data);
 
             if (!res.status === 200) {
                 const err = new Error(res.err);
