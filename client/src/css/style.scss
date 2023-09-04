@@ -1,0 +1,160 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+//* mixin 
+@mixin water_wave {
+    --mask:
+        radial-gradient(61.29px at 50% calc(100% - 85.00px), #000 99%, #0000 101%) calc(50% - 68px) 0/136px 100%,
+        radial-gradient(61.29px at 50% calc(100% + 51.00px), #0000 99%, #000 101%) 50% calc(100% - 34px)/136px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+}
+
+// * Colors 
+// $linearGradient: radial-gradient(circle, #b6f3ff, #ffffff,  #90f2ff);
+$linearGradient: linear-gradient(to left, #ffffff 50%, #b6b0ff 50%);
+$bg_dark: #000;
+$bg_white: #fff;
+$bg_blue: #0000ff;
+$box_shadow: #c9c9c9;
+$bg_gray: #c9c9c9;
+
+.bg-wave {
+    padding-bottom: 50px !important;
+    @include water_wave();
+}
+
+p,
+a,
+li {
+    font-size: 16px;
+    color: $bg_dark;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+a {
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+ul.navbar-nav.ml-auto {
+    margin-left: auto;
+}
+
+body {
+    .main_section_home {
+        background-image: $linearGradient;
+    }
+
+    .main_section_home,
+    .main_section_signin,
+    section.main_section_signup,
+    .main_section_contact {
+        height: 100vh;
+    }
+
+    .box_shadow {
+        // border: 1px solid #000;
+        box-shadow: 1px 4px 8px 0px $box_shadow;
+    }
+
+    .pointer_cursor {
+        cursor: pointer;
+    }
+
+    div#showPass {
+        padding: 10px;
+    }
+
+    input.profile_edit_btn {
+        border: 0;
+        padding: 10px;
+        background: $bg_gray;
+        border-radius: 20px;
+        width: 60%;
+    }
+
+    p.profile {
+        span {
+            color: $bg_blue;
+            font-weight: 500;
+        }
+    }
+    div#home {
+        p {
+            color: $bg_blue;
+        }
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $bg_dark;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 800;
+}
+
+h5 {
+    font-size: 22px;
+    color: $bg_blue;
+}
+
+.contact_info {
+    .contact_inner_details {
+        grid-gap: 15px;
+    }
+
+    .contact_box {
+        padding: 0 10px;
+
+        img.img_icon {
+            width: 15%;
+        }
+    }
+
+    .contact_form_container {
+        // border: 1px solid $bg_dark;
+
+        .contact_form_details {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .contact_form_name {
+            margin-bottom: 15px;
+        }
+
+        input:is(#contact_form_name, #contact_form_email, #contact_form_number),
+        textarea.contact_form_number_message {
+            padding: 5px;
+        }
+
+        textarea.contact_form_number_message {
+            width: 100%;
+        }
+    }
+}
+
+.error_page {
+    h1 {
+        font-weight: 800;
+    }
+}

@@ -1,0 +1,117 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.bg-wave {
+  padding-bottom: 50px !important;
+  --mask:
+      radial-gradient(61.29px at 50% calc(100% - 85.00px), #000 99%, #0000 101%) calc(50% - 68px) 0/136px 100%,
+      radial-gradient(61.29px at 50% calc(100% + 51.00px), #0000 99%, #000 101%) 50% calc(100% - 34px)/136px 100% repeat-x;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+
+p,
+a,
+li {
+  font-size: 16px;
+  color: #000;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul.navbar-nav.ml-auto {
+  margin-left: auto;
+}
+
+body .main_section_home {
+  background-image: linear-gradient(to left, #ffffff 50%, #b6b0ff 50%);
+}
+body .main_section_home,
+body .main_section_signin,
+body section.main_section_signup,
+body .main_section_contact {
+  height: 100vh;
+}
+body .box_shadow {
+  box-shadow: 1px 4px 8px 0px #c9c9c9;
+}
+body .pointer_cursor {
+  cursor: pointer;
+}
+body div#showPass {
+  padding: 10px;
+}
+body input.profile_edit_btn {
+  border: 0;
+  padding: 10px;
+  background: #c9c9c9;
+  border-radius: 20px;
+  width: 60%;
+}
+body p.profile span {
+  color: #0000ff;
+  font-weight: 500;
+}
+body div#home p {
+  color: #0000ff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 30px;
+  font-weight: 800;
+}
+
+h5 {
+  font-size: 22px;
+  color: #0000ff;
+}
+
+.contact_info .contact_inner_details {
+  grid-gap: 15px;
+}
+.contact_info .contact_box {
+  padding: 0 10px;
+}
+.contact_info .contact_box img.img_icon {
+  width: 15%;
+}
+.contact_info .contact_form_container .contact_form_details {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+.contact_info .contact_form_container .contact_form_name {
+  margin-bottom: 15px;
+}
+.contact_info .contact_form_container input:is(#contact_form_name, #contact_form_email, #contact_form_number),
+.contact_info .contact_form_container textarea.contact_form_number_message {
+  padding: 5px;
+}
+.contact_info .contact_form_container textarea.contact_form_number_message {
+  width: 100%;
+}
+
+.error_page h1 {
+  font-weight: 800;
+}/*# sourceMappingURL=style.css.map */
