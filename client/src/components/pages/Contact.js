@@ -1,7 +1,36 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import { NavLink } from 'react-router-dom'
 
 const Contact = () => {
+
+  const [userData, setUserData] = useState({}); 
+  
+  const callAboutPage = async () => {
+      try {
+          const res = await fetch('/getdata', {
+              method: "GET",
+              headers: {
+                  "Content-Type": "application/json",
+              },
+              credentials: "include"
+          });
+          const data = await res.json();
+          console.log(data);
+          setUserData(data);
+
+          if (!res.status === 200) {
+              const err = new Error(res.err);
+              throw err;
+          }
+      }
+      catch (e) {
+          console.log(e.message);
+      }
+  }
+  useEffect(() => {
+      callAboutPage();
+  });
+
   return (
     <>
       <div className='main_section_contact'>
@@ -15,7 +44,8 @@ const Contact = () => {
                   <img src="/images/phone.gif" alt="phone" className='img_icon' />
                   <div className='contact_info_content'>
                     <div className='contact_info_title'>Phone</div>
-                    <NavLink to="tel:1234567890" className="contact_info_text" >+91 987 654 3210 </NavLink>
+                    {/* <NavLink to="tel:1234567890" className="contact_info_text" >+91 987 654 3210 </NavLink> */}
+                    <NavLink to="tel:1234567890" className="contact_info_text" >{setUserData.phone}</NavLink>
                   </div>
                 </div>
 

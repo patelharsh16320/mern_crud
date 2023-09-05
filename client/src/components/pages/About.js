@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const About = () => {
 
-    const Navigate = new useNavigate();
-    const [userData, setUserData] = useState({}); 
-    
+    const [userData, setUserData] = useState({});
+
     const callAboutPage = async () => {
         try {
+
             const res = await fetch('/about', {
                 method: "GET",
                 headers: {
@@ -17,7 +17,9 @@ const About = () => {
                 credentials: "include"
             });
             const data = await res.json();
-            console.log(data);
+            // const JsonConvert = JSON.stringify(data);
+
+            // console.log(data);
             setUserData(data);
 
             if (!res.status === 200) {
@@ -27,7 +29,6 @@ const About = () => {
         }
         catch (e) {
             console.log(e.message);
-            Navigate('/login');
         }
     }
     useEffect(() => {
@@ -46,8 +47,8 @@ const About = () => {
                         </div>
                         <div className='col-md-6'>
                             <div className='profile-head'>
-                                <h5>Harsh Patel</h5>
-                                <h6>Web Developer</h6>
+                                <h5>{userData.name}</h5>
+                                <h6>{userData.work}</h6>
                                 <p className='profile mt-3 mb-5'>Rankings: <span>8/10</span></p>
                                 <ul className="nav nav-tabs">
                                     <li className="nav-item">
@@ -82,7 +83,7 @@ const About = () => {
                                 <div className='tab-pane fade show active' id='home' role='tabpanel' aria-labelledby='home-tab'>
                                     <div className='row'>
                                         <div className='col-md-6'> <label>User ID</label> </div>
-                                        <div className='col-md-6'> <p>786143143</p> </div>
+                                        <div className='col-md-6'> <p>{userData._id}</p> </div>
                                     </div>
                                     <div className='row'>
                                         <div className='col-md-6'> <label>Hourly Rate</label> </div>

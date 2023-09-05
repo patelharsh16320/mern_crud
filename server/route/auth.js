@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const authenticate = require('../middleware/authenticate');
-const dotenv = require('dotenv')
-dotenv.config({ path: './config.env' });
-
 const User = require('../model/userSchema');
+const cookieParser = require('cookie-parser');
+
+router.use(cookieParser());
 
 router.get('/', (req, res) => {
     res.cookie('jwttoken', 'home');
@@ -75,14 +75,11 @@ router.post('/signin', async (req, res) => {
         console.log(err);
     }
 })
-
-// router.get('/about', authenticate, (req, res) => {
-//     res.send(req.rootUser);
-//     console.log(req.token);
-// });
-router.get('/about',authenticate,  (req, res) => {
-    console.log("About")
-    res.send(req.rootUser)
-  })
+// about us 
+router.get('/about', authenticate, (req, res) => {
+    res.send(req.rootUser);
+    // const getCookies = JSON.stringify(req.cookies);
+    // console.log(getCookies);
+});
 
 module.exports = router;    
