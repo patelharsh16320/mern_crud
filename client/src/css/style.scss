@@ -85,6 +85,7 @@ body {
             font-weight: 500;
         }
     }
+
     div#home {
         p {
             color: $bg_blue;
@@ -122,7 +123,7 @@ h5 {
     }
 
     .contact_box {
-        padding: 0 10px;
+        padding: 10px;
 
         img.img_icon {
             width: 15%;
@@ -140,17 +141,23 @@ h5 {
 
         .contact_form_name {
             margin-bottom: 15px;
+            column-gap: 10px;
         }
+
         // input#contact_form_name::placeholder
         input:is(#contact_form_name, #contact_form_email, #contact_form_number),
         textarea.contact_form_number_message {
             padding: 5px;
+            width: 100%;
+            margin-bottom: 10px;
         }
+
         input:is(#contact_form_name, #contact_form_email, #contact_form_number) {
             &::placeholder {
                 color: $bg_dark;
             }
         }
+
         textarea.contact_form_number_message {
             width: 100%;
         }
@@ -160,5 +167,22 @@ h5 {
 .error_page {
     h1 {
         font-weight: 800;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact_inner_details {
+        .contact_box {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .contact_form_name {
+        display: block;
+
+        input:is(#contact_form_name, #contact_form_email, #contact_form_number) {
+            width: 100%;
+        }
     }
 }

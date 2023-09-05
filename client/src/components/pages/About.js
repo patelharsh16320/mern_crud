@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 
 const About = () => {
-
+const Navigate = useNavigate();
     const [userData, setUserData] = useState({});
 
     const callAboutPage = async () => {
@@ -26,6 +26,7 @@ const About = () => {
         }
         catch (e) {
             console.log(e.message);
+            Navigate('/login');
         }
     }
     useEffect(() => {

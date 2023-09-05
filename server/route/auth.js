@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     res.send('Home page from Router route...!');
 
 })
-
+// New User create 
 router.post('/register', async (req, res) => {
 
     const { name, email, phone, work, password, cpassword } = req.body;
@@ -78,8 +78,29 @@ router.post('/signin', async (req, res) => {
 // about us 
 router.get('/about', authenticate, (req, res) => {
     res.send(req.rootUser);
-    // const getCookies = JSON.stringify(req.cookies);
-    // console.log(getCookies);
+});
+
+// contact us 
+router.post('/contact', authenticate, async (req, res) => {
+    try {
+
+        const { name, email, phone, message } = req.body;
+
+        if (!name || !email || !phone || !message) {
+            return res.json({ Error: "Filled the reaminig feild" });
+        }
+        const userContact = await User.findOne({ _id: req.userID });
+
+        if (userContact) {
+
+            const userMessage = await userContact.addMessage(name, email, phone, message);
+            await userContact.save();
+            res.status(201).json({ Message: "User contact successfully..." });
+        }
+
+    } catch (err) {
+        res.send(err.message)
+    }
 });
 
 module.exports = router;    
