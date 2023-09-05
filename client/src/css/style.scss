@@ -141,12 +141,16 @@ h5 {
         .contact_form_name {
             margin-bottom: 15px;
         }
-
+        // input#contact_form_name::placeholder
         input:is(#contact_form_name, #contact_form_email, #contact_form_number),
         textarea.contact_form_number_message {
             padding: 5px;
         }
-
+        input:is(#contact_form_name, #contact_form_email, #contact_form_number) {
+            &::placeholder {
+                color: $bg_dark;
+            }
+        }
         textarea.contact_form_number_message {
             width: 100%;
         }

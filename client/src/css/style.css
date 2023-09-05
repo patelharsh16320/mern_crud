@@ -108,6 +108,12 @@ h5 {
 .contact_info .contact_form_container textarea.contact_form_number_message {
   padding: 5px;
 }
+.contact_info .contact_form_container input:is(#contact_form_name, #contact_form_email, #contact_form_number)::-moz-placeholder {
+  color: #000;
+}
+.contact_info .contact_form_container input:is(#contact_form_name, #contact_form_email, #contact_form_number)::placeholder {
+  color: #000;
+}
 .contact_info .contact_form_container textarea.contact_form_number_message {
   width: 100%;
 }

@@ -17,9 +17,6 @@ const About = () => {
                 credentials: "include"
             });
             const data = await res.json();
-            // const JsonConvert = JSON.stringify(data);
-
-            // console.log(data);
             setUserData(data);
 
             if (!res.status === 200) {
