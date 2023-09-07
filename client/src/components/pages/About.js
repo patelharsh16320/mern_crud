@@ -39,7 +39,7 @@ const Navigate = useNavigate();
                     <div className='row'>
                         <div className='col-md-4'>
                             <div className='pofile-img'>
-                                <img src="/images/login.jpg" alt="User_Photo" width={'100%'} />
+                                <img src="/images/about.jpg" alt="User_Photo" width={'100%'} />
                             </div>
                         </div>
                         <div className='col-md-6'>
@@ -83,12 +83,12 @@ const Navigate = useNavigate();
                                         <div className='col-md-6'> <p>{userData._id}</p> </div>
                                     </div>
                                     <div className='row'>
-                                        <div className='col-md-6'> <label>Hourly Rate</label> </div>
-                                        <div className='col-md-6'> <p>10$/hr</p> </div>
+                                        <div className='col-md-6'> <label>Phone</label> </div>
+                                        <div className='col-md-6'> <p>{userData.phone}</p> </div>
                                     </div>
                                     <div className='row'>
-                                        <div className='col-md-6'> <label>Total Projects</label> </div>
-                                        <div className='col-md-6'> <p>230</p></div>
+                                        <div className='col-md-6'> <label>Email</label> </div>
+                                        <div className='col-md-6'> <p>{userData.email}</p></div>
                                     </div>
                                     <div className='row'>
                                         <div className='col-md-6'> <label>English Level</label> </div>
@@ -101,12 +101,16 @@ const Navigate = useNavigate();
                                 </div>
                                 <div className='tab-pane fade' id='profile' role='tabpanel' aria-labelledby='profile-tab'>
                                     <div className='row'>
-                                        <div className='col-md-6'>
-                                            <label>Time Line </label>
-                                        </div>
-                                        <div className='col-md-6'>
-                                            <p>786143143</p>
-                                        </div>
+                                        <div className='col-md-6'> <label>Time Line </label> </div>
+                                        <div className='col-md-6'> <p>786143143</p> </div>
+                                    </div>
+                                    <div className='row'>
+                                        <div className='col-md-6'> <label>Email </label> </div>
+                                        <div className='col-md-6'> <p>{userData.email}</p> </div>
+                                    </div>
+                                    <div className='row'>
+                                        <div className='col-md-6'> <label>Links </label> </div>
+                                        <div className='col-md-6'> <p>None</p> </div>
                                     </div>
                                 </div>
                             </div>

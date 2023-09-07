@@ -99,7 +99,7 @@ const Signin = () => {
               </div>
             </div>
             <div className="col-md-6 col-lg-6 col-12 d-grid text-center m-auto align-center">
-              <img src="/images/sprial.svg" alt="sprial" className="sprial_img m-auto text-center" width={"50%"} />
+              <img src="/images/registration.jpg" alt="sprial" className="sprial_img m-auto text-center" width={"80%"} />
               <NavLink to="/login" className="signup-image-link">I am  Already Register</NavLink>
             </div>
           </div>

@@ -1,29 +1,23 @@
-import React from 'react'
+import React, { createContext, useReducer } from 'react'
 import Navbar from './components/Navbar'
-import { Routes, Route } from "react-router-dom";
-import Home from './components/pages/Home'
-import About from './components/pages/About'
-import Contact from './components/pages/Contact'
-import Login from './components/pages/Login'
-import Signin from './components/pages/Signin'
-import Error from './components/pages/Error';
+import Routing from './Routing'
 import './css/style.css'
+import { reducer } from './reducer/reducer.js'
+import { initialState } from './reducer/initial'
 
+export const userContext = createContext();
 
 const App = () => {
+const [state, dispatch] = useReducer(reducer, initialState)
+
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <userContext.Provider value={{ state, dispatch }} >
+        <Navbar />
+        <Routing />
+      </userContext.Provider>
     </>
   )
 }
-   
+
 export default App

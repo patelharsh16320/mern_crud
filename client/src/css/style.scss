@@ -55,7 +55,7 @@ body {
     .main_section_signin,
     section.main_section_signup,
     .main_section_contact {
-        height: 100vh;
+        height: 90vh;
     }
 
     .box_shadow {
@@ -86,7 +86,8 @@ body {
         }
     }
 
-    div#home {
+    div#home,
+    div#profile {
         p {
             color: $bg_blue;
         }
@@ -99,17 +100,19 @@ h3,
 h4,
 h5,
 h6 {
-    color: $bg_dark;
+    // color: $bg_dark;
     margin-bottom: 15px;
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 42px;
+    font-weight: 800;
 }
 
 h2 {
     font-size: 30px;
-    font-weight: 800;
+    font-weight: 700;
+    color: $bg_blue;
 }
 
 h5 {

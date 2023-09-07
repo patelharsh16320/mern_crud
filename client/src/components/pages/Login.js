@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
+import { userContext } from '../../App'
 
 const Login = () => {
+
+  const { state, dispatch } = useContext(userContext);
   const navigate = new useNavigate();
+
   const [user, setUser] = useState({
     email: "", password: ""
   });
@@ -40,6 +44,7 @@ const Login = () => {
     if (res.status === 400 || !data) {
       window.alert('Invalid Credentails!...');
     } else {
+      dispatch({ type: "USER", payload: true });
       window.alert('Successful Login');
       navigate(`/`);
     }
@@ -50,7 +55,7 @@ const Login = () => {
         <div className='container'>
           <div className='row box_shadow p-3'>
             <div className='col-md-6 col-lg-6 col-12 d-grid text-center m-auto align-center '>
-              <img src="/images/sprial.svg" alt="sprial" className='sprial_img m-auto text-center ' width={'50%'} />
+              <img src="/images/login.jpeg" alt="login" className='sprial_img m-auto text-center ' width={'80%'} />
               <NavLink to='/signin' className="signup-image-link">Create An Account</NavLink>
             </div>
             <div className='col-md-6 col-lg-6 col-12 m-auto'>

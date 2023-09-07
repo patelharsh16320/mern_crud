@@ -5,7 +5,7 @@ const Contact = () => {
 
   const [userData, setUserData] = useState({ name: "", email: "", phone: "", message: "" });
 
-  const callAboutPage = async () => {
+  const callContactPage = async () => {
     try {
       const res = await fetch('/about', {
         method: "GET",
@@ -62,7 +62,7 @@ const Contact = () => {
 
   }
   useEffect(() => {
-    callAboutPage();
+    callContactPage();
   },[]);
 
   return (

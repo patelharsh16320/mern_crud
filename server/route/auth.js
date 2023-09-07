@@ -75,6 +75,7 @@ router.post('/signin', async (req, res) => {
         console.log(err);
     }
 })
+
 // about us 
 router.get('/about', authenticate, (req, res) => {
     res.send(req.rootUser);
@@ -95,7 +96,7 @@ router.post('/contact', authenticate, async (req, res) => {
 
             const userMessage = await userContact.addMessage(name, email, phone, message);
             await userContact.save();
-            
+
             res.status(201).json({ Message: "User contact successfully..." });
         }
 
@@ -103,5 +104,12 @@ router.post('/contact', authenticate, async (req, res) => {
         res.send(err.message)
     }
 });
+
+// Logout 
+router.get('/logout',(req,res)=>{
+    console.log('Logout call');
+    res.clearCookie('jwttoken', {path: '/'});
+    res.status(200).send('Logout Succesfully...');
+})
 
 module.exports = router;    
