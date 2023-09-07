@@ -7,7 +7,6 @@ const Navigate = useNavigate();
 
     const callAboutPage = async () => {
         try {
-
             const res = await fetch('/about', {
                 method: "GET",
                 headers: {
@@ -59,7 +58,7 @@ const Navigate = useNavigate();
                             </div>
                         </div>
                         <div className='col-md-2'>
-                            <input type="submit" className='profile_edit_btn' name='btnAddMore' value="Edit Profile" />
+                            {/* <input type="submit" className='profile_edit_btn' name='btnAddMore' value="Edit Profile" /> */}
                         </div>
                     </div>
 

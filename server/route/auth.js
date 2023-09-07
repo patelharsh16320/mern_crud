@@ -95,6 +95,7 @@ router.post('/contact', authenticate, async (req, res) => {
 
             const userMessage = await userContact.addMessage(name, email, phone, message);
             await userContact.save();
+            
             res.status(201).json({ Message: "User contact successfully..." });
         }
 

@@ -17,7 +17,7 @@ const Login = () => {
   }
   let name, value;
   const handleInput = (e) => {
-    console.log(e);
+    // console.log(e);
     name = e.target.name;
     value = e.target.value;
     setUser({ ...user, [name]: value })

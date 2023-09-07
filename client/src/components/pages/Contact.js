@@ -7,7 +7,6 @@ const Contact = () => {
 
   const callAboutPage = async () => {
     try {
-
       const res = await fetch('/about', {
         method: "GET",
         headers: {
@@ -28,18 +27,18 @@ const Contact = () => {
       console.log(e.message);
     }
   }
-  useEffect(() => {
-    callAboutPage();
-  });
+
+  let name, value;
   const handleInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+    name = e.target.name;
+    value = e.target.value;
 
     setUserData({ ...userData, [name]: value });
   }
   // Send data to backend 
   const contactForm = async (e) => {
     e.preventDefault();
+
     const { name, email, phone, message } = userData;
 
     const res = await fetch("/contact", {
@@ -50,15 +49,22 @@ const Contact = () => {
       body: JSON.stringify({
         name, email, phone, message
       })
-    });
+    })
+
     const data = await res.json();
+
     if (!data) {
-      console.log('Message Not Send')
+      alert('Message Not Send');
     } else {
       alert('Message Send Successfully...');
-      setUserData({ ...userData, message: "" })
+      setUserData({ ...userData, message: "" });
     }
+
   }
+  useEffect(() => {
+    callAboutPage();
+  },[]);
+
   return (
     <>
       <div className='main_section_contact'>
@@ -124,7 +130,7 @@ const Contact = () => {
                             value={userData.phone}
                             placeholder="Your Phone" required />
                         </div>
-                        <textarea className="contact_form_number_message"
+                        <textarea type="text" className="contact_form_number_message"
                           name='message'
                           onChange={handleInput}
                           value={userData.message}
