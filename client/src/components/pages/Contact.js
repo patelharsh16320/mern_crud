@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
 
@@ -54,9 +56,9 @@ const Contact = () => {
     const data = await res.json();
 
     if (!data) {
-      alert('Message Not Send');
+      toast.error('Message Not Send',{theme:"colored"});
     } else {
-      alert('Message Send Successfully...');
+      toast.success('Message Send Successfully...',{theme:"colored"});
       setUserData({ ...userData, message: "" });
     }
 
@@ -114,25 +116,25 @@ const Contact = () => {
 
                       <form method="POST" id="contact_form">
                         <div className="contact_form_name d-lg-flex d-md-flex justify-content-between align-items-center">
-                          <input type="text" id="contact_form_name" className="contat_form_name input_feild"
+                          <input type="text" id="contact_form_name" className=" form-control contat_form_name input_feild email_group"
                             name='name'
-                            onChange={handleInput}
+                            // onChange={handleInput}
                             value={userData.name}
                             placeholder="Your Name" required />
-                          <input type="email" id="contact_form_email" className="contat_form_email input_feild"
+                          <input type="email" id="contact_form_email" className=" form-control contat_form_email input_feild email_group"
                             name='email'
-                            onChange={handleInput}
+                            // onChange={handleInput}
                             value={userData.email}
                             placeholder="Your Email" required />
-                          <input type="number" id="contact_form_number" className="contat_form_number input_feild"
+                          <input type="number" id="contact_form_number" className=" form-control contat_form_number input_feild email_group"
                             name='phone'
                             minLength={10}
                             maxLength={13}
-                            onChange={handleInput}
+                            // onChange={handleInput}
                             value={userData.phone}
                             placeholder="Your Phone" required />
                         </div>
-                        <textarea type="text" className="contact_form_number_message"
+                        <textarea type="text" className=" form-control contact_form_number_message"
                           name='message'
                           onChange={handleInput}
                           value={userData.message}
@@ -150,6 +152,7 @@ const Contact = () => {
 
         </div>
       </div>
+      <ToastContainer />
     </>
   )
 }

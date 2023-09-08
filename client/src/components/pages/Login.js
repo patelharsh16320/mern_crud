@@ -44,13 +44,10 @@ const Login = () => {
     const data = await res.json();
 
     if (res.status === 400 || !data) {
-      // window.alert('Invalid Credentails!...');
       toast.error("Invalid Credentails!...",{ theme: "colored", });
     } else {
       dispatch({ type: "USER", payload: true });
-      // window.alert('Successful Login');
       toast.success("Successful Login!...", { theme: "colored", }); 
-      // Navigate('/')
       setTimeout(() => {
         Navigate('/')
       }, 1500)

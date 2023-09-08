@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Signin = () => {
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   const [passShow, setPassShow] = useState(false);
 
@@ -46,10 +46,12 @@ const Signin = () => {
         toast.error("invalid Registration",{ theme: "colored", });
       } else {
         toast.success("Registration Successfull",{ theme: "colored", });
-        navigate(`/login`);
+        setTimeout(() => {
+          Navigate('/login')
+        }, 1500)
       }
     } else{
-      alert('Password And Confirm pasword are nor same...')
+      toast.error('Password And Confirm pasword are nor same...')
     }
   }
   return (

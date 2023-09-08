@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 const About = () => {
     const Navigate = useNavigate();
     const [userData, setUserData] = useState({});
-    const [deleteUser, setDeleteUser] = useState(false);
 
     const callAboutPage = async () => {
         try {
@@ -43,7 +42,7 @@ const About = () => {
           message: 'Are you sure to Delete this ID.',
           buttons: [
             { label: 'Yes', onClick: () => Navigate('/delete') },
-            { label: 'No', onClick: () => toast.error('Delete Cancle',{theme: "colored"}) }
+            { label: 'No', onClick: () => toast.error('Cancle',{theme: "colored"}) }
           ]
         });
     }
