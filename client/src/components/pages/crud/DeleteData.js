@@ -1,16 +1,12 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { userContext } from '../../App'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
-const Logout = () => {
+const DeleteData = () => {
 
-    const { state, dispatch } = useContext(userContext);
     const Navigate = useNavigate();
 
     useEffect(() => {
-        fetch('/logout', {
+        fetch('/delete', {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -18,28 +14,24 @@ const Logout = () => {
             },
             credentials: "include"
         }).then(() => {
-            dispatch({ type: "USER", payload: false })
-            toast.success('Logout Succesfully...', {
-                theme: "colored",
-            })
             Navigate('/login');
         }).catch((err) => {
-            console.log(err);
+            console.log(err);    
         });
     });
+
 
     return (
         <>
             <section className='main_section main_section_home d-flex text-center align-items-center justify-content-center'>
                 <div class="container">
                     <div class="row home_contain">
-                        <h1>Logout Succesfully...</h1>
+                        <h1>Delete User Succesfully...</h1>
                     </div>
                 </div>
             </section>
-            <ToastContainer />
         </>
     )
 }
 
-export default Logout
+export default DeleteData

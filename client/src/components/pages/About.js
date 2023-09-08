@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom';
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.css'
 
 const About = () => {
     const Navigate = useNavigate();
     const [userData, setUserData] = useState({});
+    const [deleteUser, setDeleteUser] = useState(false);
 
     const callAboutPage = async () => {
         try {
@@ -28,8 +34,17 @@ const About = () => {
             Navigate('/login');
         }
     }
-    const updateData = () =>{
+    const updateData = () => {
         Navigate('/update');
+    }
+    const deleteData = () => {
+        confirmAlert({
+          message: 'Are you sure to Delete this ID.',
+          buttons: [
+            { label: 'Yes', onClick: () => Navigate('/delete') },
+            { label: 'No', onClick: () => toast.error('Delete Cancle',{theme: "colored"}) }
+          ]
+        });
     }
     useEffect(() => {
         callAboutPage();
@@ -62,6 +77,7 @@ const About = () => {
                         </div>
                         <div className='col-md-2'>
                             <input type="submit" className='profile_edit_btn' name='btnAddMore' value="Edit Profile" onClick={updateData} />
+                            <button className='profile_edit_btn mt-3' type="button" onClick={deleteData}>Delete Profile</button>
                         </div>
                     </div>
 
@@ -121,6 +137,7 @@ const About = () => {
                     </div>
                 </form>
             </div>
+            <ToastContainer />
         </>
     )
 }

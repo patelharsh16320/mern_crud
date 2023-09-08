@@ -8,6 +8,7 @@ import Signin from './components/pages/Signin'
 import Logout from './components/pages/Logout'
 import Error from './components/pages/Error';
 import UpdateData from './components/pages/crud/UpdateData';
+import DeleteData from './components/pages/crud/DeleteData';
 
 const Routing = () => {
     return (
@@ -20,6 +21,7 @@ const Routing = () => {
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/Logout" element={<Logout />} />
                 <Route path="/update" element={<UpdateData />} />
+                <Route path="/delete" element={<DeleteData />} />
                 <Route path="*" element={<Error />} />
             </Routes>
         </>

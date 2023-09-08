@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react"
 import "bootstrap/dist/css/bootstrap.css"
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UpdateData = () => {
   const navigate = useNavigate();
-  // const [userData, setUserData] = useState({ name: "", email: "", phone: "", message: "" });
   const [user, setUser] = useState({ name: "", email: "", phone: "", work: "", password: "", cpassword: "" });
 
   let name, value;
@@ -59,10 +60,10 @@ const UpdateData = () => {
     const data = await res.json();
 
     if (data.status === 422 || !data ) {
-      window.alert("Not Update");
+      toast.alert("Not Update",{ theme: "colored", });
     } else {
-      window.alert("Data Updated Successfull");
-      navigate(`/about`);
+      toast.success("Data Updated Successfull",{ theme: "colored", });
+      setTimeout (()=>{ navigate(`/about`)}, 1500)
     }
   }
 
@@ -109,6 +110,7 @@ const UpdateData = () => {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   )
 }

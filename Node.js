@@ -119,3 +119,6 @@ res.cookie('jwtCookie', token, {
 
 //* css import in React js 
 // import 'bootstrap/dist/css/bootstrap.css'
+
+//! Alert PopUp 
+// npm i react-toastify

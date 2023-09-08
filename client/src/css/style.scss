@@ -71,12 +71,13 @@ body {
         padding: 10px;
     }
 
-    input.profile_edit_btn {
+    input.profile_edit_btn,
+    button.profile_edit_btn {
         border: 0;
         padding: 10px;
         background: $bg_gray;
         border-radius: 20px;
-        width: 60%;
+        width: 100%;
     }
 
     p.profile {

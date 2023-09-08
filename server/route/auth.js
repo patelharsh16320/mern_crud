@@ -116,14 +116,26 @@ router.get('/logout', (req, res) => {
 router.post('/update', authenticate, async (req, res) => {
     try {
         const { name, phone, work } = req.body;
-        const result = await User.updateOne({ _id: req.userID }, {
+        const result = await User.findByIdAndUpdate({ _id: req.userID }, {
             $set: {// "phone": "9876543210", 
                 name, phone, work
             }
         });
+        console.log(result);
         res.status(200).send(result);
     } catch (err) {
         res.status(404).send(err)
+    }
+})
+
+// Delete user 
+router.get('/delete', authenticate, async (req, res) => {
+    try {
+        const deleteUser = await User.findByIdAndDelete({ _id: req.userID });
+        console.log(deleteUser);
+        res.status(200).send(deleteUser);
+    } catch (err) {
+        res.status(404).send(err);
     }
 })
 

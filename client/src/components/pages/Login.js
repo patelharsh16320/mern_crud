@@ -2,11 +2,13 @@ import React, { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import { userContext } from '../../App'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
   const { state, dispatch } = useContext(userContext);
-  const navigate = new useNavigate();
+  const Navigate = new useNavigate();
 
   const [user, setUser] = useState({
     email: "", password: ""
@@ -42,11 +44,16 @@ const Login = () => {
     const data = await res.json();
 
     if (res.status === 400 || !data) {
-      window.alert('Invalid Credentails!...');
+      // window.alert('Invalid Credentails!...');
+      toast.error("Invalid Credentails!...",{ theme: "colored", });
     } else {
       dispatch({ type: "USER", payload: true });
-      window.alert('Successful Login');
-      navigate(`/`);
+      // window.alert('Successful Login');
+      toast.success("Successful Login!...", { theme: "colored", }); 
+      // Navigate('/')
+      setTimeout(() => {
+        Navigate('/')
+      }, 1500)
     }
   }
   return (
@@ -85,6 +92,7 @@ const Login = () => {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   )
 }

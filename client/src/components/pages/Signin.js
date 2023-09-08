@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import "bootstrap/dist/css/bootstrap.css"
 import { NavLink } from "react-router-dom"
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -11,6 +13,7 @@ const Signin = () => {
   const [user, setUser] = useState({
     name: "", email: "", phone: "", work: "", password: "", cpassword: ""
   });
+  
   let name, value;
   const handleInput = (e) => {
     console.log(e);
@@ -27,23 +30,26 @@ const Signin = () => {
 
     const { name, email, phone, work, password, cpassword } = user;
 
-    const res = await fetch("/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name, email, phone, work, password, cpassword
-      })
-    });
+    if (password === cpassword) {
+      const res = await fetch("/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name, email, phone, work, password, cpassword
+        })
+      });
+      const data = await res.json();
 
-    const data = await res.json();
-
-    if (data.status === 422 || !data) {
-      window.alert("invalid Registration");
-    } else {
-      window.alert("Registration Successfull");
-      navigate(`/login`);
+      if (data.status === 422 || !data) {
+        toast.error("invalid Registration",{ theme: "colored", });
+      } else {
+        toast.success("Registration Successfull",{ theme: "colored", });
+        navigate(`/login`);
+      }
+    } else{
+      alert('Password And Confirm pasword are nor same...')
     }
   }
   return (
@@ -105,6 +111,7 @@ const Signin = () => {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   )
 }
