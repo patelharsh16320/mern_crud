@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink,useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const About = () => {
-const Navigate = useNavigate();
+    const Navigate = useNavigate();
     const [userData, setUserData] = useState({});
 
     const callAboutPage = async () => {
@@ -27,6 +27,9 @@ const Navigate = useNavigate();
             console.log(e.message);
             Navigate('/login');
         }
+    }
+    const updateData = () =>{
+        Navigate('/update');
     }
     useEffect(() => {
         callAboutPage();
@@ -58,7 +61,7 @@ const Navigate = useNavigate();
                             </div>
                         </div>
                         <div className='col-md-2'>
-                            {/* <input type="submit" className='profile_edit_btn' name='btnAddMore' value="Edit Profile" /> */}
+                            <input type="submit" className='profile_edit_btn' name='btnAddMore' value="Edit Profile" onClick={updateData} />
                         </div>
                     </div>
 
@@ -101,8 +104,8 @@ const Navigate = useNavigate();
                                 </div>
                                 <div className='tab-pane fade' id='profile' role='tabpanel' aria-labelledby='profile-tab'>
                                     <div className='row'>
-                                        <div className='col-md-6'> <label>Time Line </label> </div>
-                                        <div className='col-md-6'> <p>786143143</p> </div>
+                                        <div className='col-md-6'> <label>Phone </label> </div>
+                                        <div className='col-md-6'> <p>{userData.phone}</p> </div>
                                     </div>
                                     <div className='row'>
                                         <div className='col-md-6'> <label>Email </label> </div>

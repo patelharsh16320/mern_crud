@@ -11,7 +11,6 @@ const Navbar = () => {
             return (
                 <>
                     <li className="nav-item active"> <NavLink className="nav-link" to="/">Home</NavLink> </li>
-                    <li className="nav-item"> <NavLink className="nav-link" to="/about">AboutMe</NavLink> </li>
                     <li className="nav-item"> <NavLink className="nav-link" to="/contact">Contact</NavLink> </li>
                     <li className="nav-item"> <NavLink className="nav-link" to="/Login">Login</NavLink> </li>
                     <li className="nav-item"> <NavLink className="nav-link" to="/signin">Registration</NavLink> </li>

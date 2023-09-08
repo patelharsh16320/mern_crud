@@ -94,6 +94,17 @@ userSchema.methods.addMessage = async function (name, email, phone, message) {
         console.log(err);
     }
 }
+// Update contact details - store the message
+userSchema.methods.updateData = async function (name, phone, message) {
+    try {
+        this.userSchema = this.userSchema.concat({ name, phone, message });
+        await this.save();
+        return this.userSchema;
+        
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 const user = mongoose.model('USER', userSchema);
 module.exports = user;

@@ -20,7 +20,7 @@ $bg_dark: #000;
 $bg_white: #fff;
 $bg_blue: #0000ff;
 $box_shadow: #c9c9c9;
-$bg_gray: #c9c9c9;
+$bg_gray: #e0e0e0;
 
 .bg-wave {
     padding-bottom: 50px !important;
@@ -91,6 +91,10 @@ body {
         p {
             color: $bg_blue;
         }
+    }
+
+    .email_group {
+        background: $bg_gray;
     }
 }
 

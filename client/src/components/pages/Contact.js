@@ -126,6 +126,8 @@ const Contact = () => {
                             placeholder="Your Email" required />
                           <input type="number" id="contact_form_number" className="contat_form_number input_feild"
                             name='phone'
+                            minLength={10}
+                            maxLength={13}
                             onChange={handleInput}
                             value={userData.phone}
                             placeholder="Your Phone" required />

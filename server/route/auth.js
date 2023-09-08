@@ -106,10 +106,25 @@ router.post('/contact', authenticate, async (req, res) => {
 });
 
 // Logout 
-router.get('/logout',(req,res)=>{
+router.get('/logout', (req, res) => {
     console.log('Logout call');
-    res.clearCookie('jwttoken', {path: '/'});
+    res.clearCookie('jwttoken', { path: '/' });
     res.status(200).send('Logout Succesfully...');
 })
 
-module.exports = router;    
+// Update Existing User 
+router.post('/update', authenticate, async (req, res) => {
+    try {
+        const { name, phone, work } = req.body;
+        const result = await User.updateOne({ _id: req.userID }, {
+            $set: {// "phone": "9876543210", 
+                name, phone, work
+            }
+        });
+        res.status(200).send(result);
+    } catch (err) {
+        res.status(404).send(err)
+    }
+})
+
+module.exports = router;
