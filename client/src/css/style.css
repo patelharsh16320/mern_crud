@@ -33,11 +33,13 @@ ul.navbar-nav.ml-auto {
 body .main_section_home {
   background-image: linear-gradient(to left, #ffffff 50%, #b6b0ff 50%);
 }
-body .main_section_home,
-body .main_section_signin,
-body section.main_section_signup,
-body .main_section_contact {
-  height: 90vh;
+@media (min-width: 1200px) {
+  body .main_section_home,
+  body .main_section_signin,
+  body section.main_section_signup,
+  body .main_section_contact {
+    height: 90vh;
+  }
 }
 body .box_shadow {
   box-shadow: 1px 4px 8px 0px #c9c9c9;

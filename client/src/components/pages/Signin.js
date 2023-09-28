@@ -13,7 +13,7 @@ const Signin = () => {
   const [user, setUser] = useState({
     name: "", email: "", phone: "", work: "", password: "", cpassword: ""
   });
-  
+
   let name, value;
   const handleInput = (e) => {
     console.log(e);
@@ -41,18 +41,20 @@ const Signin = () => {
         })
       });
       const data = await res.json();
-
-      if (data.status === 422 || !data) {
-        toast.error("invalid Registration",{ theme: "colored", });
+      if (res.status === 422 || !data) {
+        return toast.error("Invalid Details...!", { theme: "colored", });
       } else {
-        toast.success("Registration Successfull",{ theme: "colored", });
+        toast.success("Registration Successfull...", { theme: "colored", });
         setTimeout(() => {
           Navigate('/login')
         }, 1500)
       }
-    } else{
+
+    } else {
       toast.error('Password And Confirm pasword are nor same...')
     }
+
+
   }
   return (
     <>

@@ -30,7 +30,7 @@ const Logout = () => {
 
     return (
         <>
-            <section className='main_section main_section_home d-flex text-center align-items-center justify-content-center'>
+            <section className='main_section main_section_home d-flex text-center align-items-center justify-content-center' style={{'height': '90vh'}}>
                 <div class="container">
                     <div class="row home_contain">
                         <h1>Logout Succesfully...</h1>

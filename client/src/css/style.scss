@@ -51,11 +51,14 @@ body {
         background-image: $linearGradient;
     }
 
-    .main_section_home,
-    .main_section_signin,
-    section.main_section_signup,
-    .main_section_contact {
-        height: 90vh;
+
+    @media (min-width: 1200px) {
+        .main_section_home,
+        .main_section_signin,
+        section.main_section_signup,
+        .main_section_contact {
+            height: 90vh;
+        }
     }
 
     .box_shadow {
