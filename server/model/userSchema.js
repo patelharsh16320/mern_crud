@@ -31,6 +31,18 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    emp_id: {
+        type: String,
+        require: true,
+    },
+    position: {
+        type: String,
+        require: true,
+    },
+    technology: {
+        type: String,
+        require: true,
+    },
     messages: [
         {
             name: {

@@ -104,13 +104,13 @@ const Signin = () => {
                   <div className="text-start">
                     <input type="checkbox" onClick={togglePassword} /> Show Password
                   </div>
-                  <button type="submit" className="btn btn-primary form-submit" name="signup" id="signup" onClick={PostData}>Register</button>
+                  <button type="submit" className="btn btn-primary form-submit shadow button_effect" name="signup" id="signup" onClick={PostData}>Register</button>
                 </form>
               </div>
             </div>
             <div className="col-md-6 col-lg-6 col-12 d-grid text-center m-auto align-center">
               <img src="/images/registration.jpg" alt="sprial" className="sprial_img m-auto text-center" width={"80%"} />
-              <NavLink to="/login" className="signup-image-link">I am  Already Register</NavLink>
+              <NavLink to="/login" className="signup-image-link shadow button_effect ">I am  Already Register</NavLink>
             </div>
           </div>
         </div>

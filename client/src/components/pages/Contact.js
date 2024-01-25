@@ -70,10 +70,10 @@ const Contact = () => {
   return (
     <>
       <div className='main_section_contact'>
-        <div className='contact_info mt-3'>
+        <div className='contact_info pt-5'>
           <div className='container contact_details'>
             <div className='row'>
-              <div className='contact_inner_details d-lg-flex d-md-flex justify-content-between align-items-center '>
+              <div className='contact_inner_details d-lg-flex d-md-flex justify-content-between align-items-center p-3 shadow'>
 
                 {/* Phone Details  */}
                 <div className='contact_box d-flex box_shadow'>
@@ -106,11 +106,11 @@ const Contact = () => {
           </div>
 
           {/* contact us form  */}
-          <div className='contact-form mt-5'>
+          <div className='contact-form pt-5'>
             <div className="contact_form">
               <div className="container">
-                <div className="row">
-                  <div className="col-md-8 col-12 m-auto">
+                <div className="row shadow">
+                  <div className="col-md-8 col-12 m-auto p-5">
                     <div className="contact_form_container p-3 box_shadow">
                       <div className="contact_form_details">Get In Touch</div>
 
@@ -139,7 +139,7 @@ const Contact = () => {
                           onChange={handleInput}
                           value={userData.message}
                           placeholder="Message" rows="5" required />
-                        <button type="submit" className="btn btn-primary contact_submit_button" name="signup" id="signup"
+                        <button type="submit" className="btn btn-primary contact_submit_button button_effect shadow" name="signup" id="signup"
                           onClick={contactForm} >Send Message</button>
                       </form>
 

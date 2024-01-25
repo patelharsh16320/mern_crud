@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Harsh",
+        "mail": "Harsh@shivohm.com",
+        "position": "wordpress developer",
+        "technology": "WordPress, MERN"
+    },
+    {
+        "id": 2,
+        "name": "Jaydeep",
+        "mail": "Jaydeep@shivohm.com",
+        "position": "Python developer",
+        "technology": "Python, database"
+    },
+    {
+        "id": 3,
+        "name": "Rupesh",
+        "mail": "Rupesh@shivohm.com",
+        "position": "DevOps",
+        "technology": "AWS"
+    }
+]

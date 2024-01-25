@@ -63,7 +63,7 @@ const UpdateData = () => {
       toast.alert("Not Update",{ theme: "colored", });
     } else {
       toast.success("Data Updated Successfull",{ theme: "colored", });
-      setTimeout (()=>{ navigate(`/about`)}, 1500)
+      setTimeout (()=>{ navigate(`/about`)}, 1500);
     }
   }
 

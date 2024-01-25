@@ -1,11 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const authenticate = require('../middleware/authenticate');
 const User = require('../model/userSchema');
+const Employee = require('../model/empSchema');
 const cookieParser = require('cookie-parser');
+const mongoose = require('mongoose');
 
 router.use(cookieParser());
+const authenticate = require('../middleware/authenticate');
+const EmpAuthenticate = require('../middleware/empAuthenticate')
 
 router.get('/', (req, res) => {
     res.cookie('jwttoken', 'home');
@@ -134,6 +137,109 @@ router.get('/delete', authenticate, async (req, res) => {
         const deleteUser = await User.findByIdAndDelete({ _id: req.userID });
         console.log(deleteUser);
         res.status(200).send(deleteUser);
+    } catch (err) {
+        res.status(404).send(err);
+    }
+})
+
+// employee data
+// router.get('/employee', async (req, res) => {
+//     try {
+//         Employee.find({ _id: req.userID })
+//         .exec((err, results) => {
+//             if (err) {
+//               console.error('err');
+//               return;
+//             }
+//             console.log('results');
+//         });
+//     } catch (err) {
+//         console.log('err');
+//     }
+//     //    console.log(req.body);
+//     // const { emp_id, name, position, technology, email } = req.body;
+//     // if (!emp_id || !name || !position || !technology || !email) {
+//     //     res.status(400).send('Fill the blank feild...');
+//     // }
+//     // try {
+//     //     const emp_Exit = await EmployeeData.findOne({ email: email })
+//     //     const empIdExist = await EmployeeData.findOne({ emp_id: emp_id })
+//     //     if (emp_Exit || empIdExist) {
+//     //         return res.status(422).json({ Error: 'Email or Employee Id already Exist, Choose other one.' });
+//     //     }
+//     //     const Employee = new EmployeeData({ emp_id, name, position, technology, email });
+//     //     await Employee.save();
+//     //     res.status(200).json({ Message: `User Registration Successfully...` });
+
+//     // } catch (err) {
+//     //     console.log(err)
+//     // }
+
+// });
+router.get('/employee', async (req, res) => {
+    try {
+        const allEmployees = await Employee.find({});
+        res.json(allEmployees);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+// Add new Employee 
+router.post('/employee/addnew', async (req, res) => {
+
+    const { emp_id, name, email, position, technology } = req.body;
+
+    if (!emp_id || !name || !email || !position || !technology) {
+        return res.status(422).json({ Error: 'Fill the empty property...!' });
+    }
+    try {
+        const { emp_id, name, email, position, technology } = req.body;
+        const idexit = await Employee.findOne({ emp_id: emp_id })
+        const emailExit = await Employee.findOne({ email: email })
+
+        if (idexit) { return res.status(422).json({ Error: 'Employee ID Already Exists, Choose other Employee id.' }); }
+        if (emailExit) { return res.status(422).json({ Error: 'Email Already Exists, Choose other Email.' }); }
+
+        const allEmployees = new Employee({ emp_id, name, email, position, technology })
+        await allEmployees.save();
+
+        res.status(200).json({ Message: `User Registration Successfully...` });
+
+    } catch (err) {
+        console.log(err.Message);
+    }
+})
+
+// Employee delete 
+router.delete('/employee/delete/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const result = await Employee.findByIdAndDelete({ _id: id });
+        // const result = await Employee.findByIdAndDelete(id);
+        res.status(200).json({ Msg: 'Employee delete successfully...' });
+
+        // const deleteEmp = await Employee.findByIdAndDelete("65a8e77fd3aeebad569cf67c");
+
+    } catch (err) {
+        res.status(404).send(err);
+    }
+});
+
+// Update Existing Employee 
+router.post('/employee/update/:id', async (req, res) => {
+    try {
+        const { emp_id, name, position, technology, email } = req.body;
+        const id = req.params.id;
+        const result = await Employee.findByIdAndUpdate({ _id: id }, {
+            $set: {
+                emp_id, name, position, technology, email
+            }
+        });
+        console.log(result);
+        return res.status(200).send(result);
+
     } catch (err) {
         res.status(404).send(err);
     }

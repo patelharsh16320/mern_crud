@@ -48,16 +48,44 @@ ul.navbar-nav.ml-auto {
 
 body {
     .main_section_home {
-        background-image: $linearGradient;
+        // background-image: $linearGradient;
+        background-image: linear-gradient(155deg, #b6b0ff 50%, #fff 50%);
+        height: 94vh;
     }
 
+    .button_effect {
+        background-image:linear-gradient(to right, #d251ef, #00c4ff);
+        border-radius: 20px;
+        width: 25%;
+        color: #fff;
+        font-weight: 900;
+        border-color: transparent;
+    }
+
+    a.signup-image-link.shadow.button_effect {
+        width: 50%;
+        padding: 15px;
+        margin: auto;
+    }
+
+    section.main_section_signup,
+    section.main_section_signin,
+    .main_section_contact {
+        background-image: linear-gradient(155deg, #b6b0ff 50%, #fff 50%);
+
+        .container {
+            background-color: #fff;
+            // background-image: linear-gradient(155deg, #fff 50%, #b6b0ff 50%);
+        }
+    }
 
     @media (min-width: 1200px) {
+
         .main_section_home,
         .main_section_signin,
         section.main_section_signup,
         .main_section_contact {
-            height: 90vh;
+            height: 94vh;
         }
     }
 

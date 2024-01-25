@@ -31,14 +31,38 @@ ul.navbar-nav.ml-auto {
 }
 
 body .main_section_home {
-  background-image: linear-gradient(to left, #ffffff 50%, #b6b0ff 50%);
+  background-image: linear-gradient(155deg, #b6b0ff 50%, #fff 50%);
+  height: 94vh;
+}
+body .button_effect {
+  background-image: linear-gradient(to right, #d251ef, #00c4ff);
+  border-radius: 20px;
+  width: 25%;
+  color: #fff;
+  font-weight: 900;
+  border-color: transparent;
+}
+body a.signup-image-link.shadow.button_effect {
+  width: 50%;
+  padding: 15px;
+  margin: auto;
+}
+body section.main_section_signup,
+body section.main_section_signin,
+body .main_section_contact {
+  background-image: linear-gradient(155deg, #b6b0ff 50%, #fff 50%);
+}
+body section.main_section_signup .container,
+body section.main_section_signin .container,
+body .main_section_contact .container {
+  background-color: #fff;
 }
 @media (min-width: 1200px) {
   body .main_section_home,
   body .main_section_signin,
   body section.main_section_signup,
   body .main_section_contact {
-    height: 90vh;
+    height: 94vh;
   }
 }
 body .box_shadow {
