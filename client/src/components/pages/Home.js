@@ -29,12 +29,17 @@ const Home = () => {
 
     return (
         <>
-            <section className='main_section main_section_home d-flex text-center align-items-center justify-content-center' style={{'height': '94vh'}}>
-                <div class="container">
-                    <div class="row home_contain">
+            <section className='main_section main_section_home d-flex text-center align-items-center justify-content-center' style={{ 'height': '94vh' }}>
+                <div className="container">
+                    <div className="row home_contain">
                         <h5>Welcome</h5>
-                        <h1 className='text-capitalize'>{show?'Hello, ':''}{userData.name}</h1>
+                        <h1 className='text-capitalize'>{show ? 'Hello, ' : ''}{userData.name}</h1>
                         <h2 className='text-capitalize'>{show ? 'Happy, to see you again' : 'We Are The MERN Developer'}</h2>
+                        <div className="bubble small"></div>
+                        <div className="bubble s-medium"></div>
+                        <div className="bubble medium"></div>
+                        <div className="bubble large"></div>
+                        <div className="bubble small-l"></div>
                     </div>
                 </div>
             </section>

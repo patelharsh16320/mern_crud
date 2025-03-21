@@ -99,7 +99,7 @@ const UpdateData = () => {
                       onChange={handleInput}
                       required />
                   </div>
-                  <button type="submit" className="btn btn-primary form-submit" name="signup" id="signup" onClick={updateDataBase}>Update</button>
+                  <button type="submit" className="btn btn-primary form-submit button_effect" name="signup" id="signup" onClick={updateDataBase}>Update</button>
                 </form>
               </div>
             </div>

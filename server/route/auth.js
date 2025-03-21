@@ -38,7 +38,7 @@ router.post('/register', async (req, res) => {
             return res.status(422).json({ Error: 'Password & confirm password are not same, Fill the same data on both...' });
         }
     } catch (err) {
-        console.log(err.Message);
+        // console.log(err.Message);
     }
 })
 // Login Route 
@@ -60,7 +60,7 @@ router.post('/signin', async (req, res) => {
 
             // create unic token 
             token = await userLogin.generateAuthToken();
-            console.log(token);
+            // console.log(token);
 
             res.cookie('jwttoken', token, {
                 expires: new Date(Date.now() + 25892000000),
@@ -75,7 +75,7 @@ router.post('/signin', async (req, res) => {
         }
     }
     catch (err) {
-        console.log(err);
+        // console.log(err);
     }
 })
 
@@ -110,7 +110,7 @@ router.post('/contact', authenticate, async (req, res) => {
 
 // Logout 
 router.get('/logout', (req, res) => {
-    console.log('Logout call');
+    // console.log('Logout call');
     res.clearCookie('jwttoken', { path: '/' });
     res.status(200).send('Logout Succesfully...');
 })
@@ -124,7 +124,7 @@ router.post('/update', authenticate, async (req, res) => {
                 name, phone, work
             }
         });
-        console.log(result);
+        // console.log(result);
         res.status(200).send(result);
     } catch (err) {
         res.status(404).send(err)
@@ -135,7 +135,7 @@ router.post('/update', authenticate, async (req, res) => {
 router.get('/delete', authenticate, async (req, res) => {
     try {
         const deleteUser = await User.findByIdAndDelete({ _id: req.userID });
-        console.log(deleteUser);
+        // console.log(deleteUser);
         res.status(200).send(deleteUser);
     } catch (err) {
         res.status(404).send(err);
@@ -151,12 +151,12 @@ router.get('/delete', authenticate, async (req, res) => {
 //               console.error('err');
 //               return;
 //             }
-//             console.log('results');
+//            console.log('results');
 //         });
 //     } catch (err) {
-//         console.log('err');
+//        console.log('err');
 //     }
-//     //    console.log(req.body);
+    //    console.log(req.body);
 //     // const { emp_id, name, position, technology, email } = req.body;
 //     // if (!emp_id || !name || !position || !technology || !email) {
 //     //     res.status(400).send('Fill the blank feild...');
@@ -172,7 +172,7 @@ router.get('/delete', authenticate, async (req, res) => {
 //     //     res.status(200).json({ Message: `User Registration Successfully...` });
 
 //     // } catch (err) {
-//     //     console.log(err)
+    //     console.log(err)
 //     // }
 
 // });
@@ -208,7 +208,7 @@ router.post('/employee/addnew', async (req, res) => {
         res.status(200).json({ Message: `User Registration Successfully...` });
 
     } catch (err) {
-        console.log(err.Message);
+        // console.log(err.Message);
     }
 })
 
@@ -237,7 +237,7 @@ router.post('/employee/update/:id', async (req, res) => {
                 emp_id, name, position, technology, email
             }
         });
-        console.log(result);
+        // console.log(result);
         return res.status(200).send(result);
 
     } catch (err) {

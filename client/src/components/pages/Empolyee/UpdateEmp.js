@@ -87,7 +87,7 @@ const UpdateData = () => {
                 <h2>Update User</h2>
                 <form key={data._id}>
                   <div className="form-group mb-3">
-                    <input type="number" className="form-control" name="emp_id" id_="emp_id" placeholder="Enter ID"
+                    <input type="number" className="form-control email_group" name="emp_id" id_="emp_id" placeholder="Enter ID"
                       value={data.emp_id}
                       onChange={handleInput}
                       readOnly
@@ -102,7 +102,7 @@ const UpdateData = () => {
                   </div>
 
                   <div className="form-group mb-3">
-                    <input type="email" className="form-control " name="email" id="email" placeholder="Enter Mail"
+                    <input type="email" className="form-control email_group " name="email" id="email" placeholder="Enter Mail"
                       value={data.email}
                       onChange={handleInput}
                       readOnly
@@ -122,7 +122,7 @@ const UpdateData = () => {
                       onChange={handleInput}
                       required />
                   </div>
-                  <button type="submit" className="btn btn-primary form-submit" name="signup" id="signup"
+                  <button type="submit" className="btn btn-primary form-submit button_effect" name="signup" id="signup"
                     onClick={updateDataBase}
                   >Update</button>
 

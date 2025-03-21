@@ -60,10 +60,10 @@ const Login = () => {
           <div className='row box_shadow p-3'>
             <div className='col-md-6 col-lg-6 col-12 d-grid text-center m-auto align-center '>
               <img src="/images/login.jpeg" alt="login" className='sprial_img m-auto text-center ' width={'80%'} />
-              <NavLink to='/signin' className="signup-image-link shadow button_effect">Create An Account</NavLink>
+              <NavLink to='/signin' className="signup-image-link btn  btn-primary shadow button_effect">Create An Account</NavLink>
             </div>
             <div className='col-md-6 col-lg-6 col-12 m-auto'>
-              <div className='card border-0 text-start'>
+              <div className='card border-0 text-center text-md-start text-lg-start'>
                 <h2>Sign in</h2>
                 <form method='POST'>
 
@@ -81,7 +81,7 @@ const Login = () => {
                     </div>
                   </div>
 
-                  <button type="submit" className="btn btn-primary form-submit shadow button_effect" name="signup" id="signup" onClick={postData}>Log In</button>
+                  <button type="submit" className="btn form-submit shadow primary_btn" name="signup" id="signup" onClick={postData}>Log In</button>
                 </form>
               </div>
             </div>

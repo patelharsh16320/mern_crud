@@ -139,7 +139,7 @@ const Contact = () => {
                           onChange={handleInput}
                           value={userData.message}
                           placeholder="Message" rows="5" required />
-                        <button type="submit" className="btn btn-primary contact_submit_button button_effect shadow" name="signup" id="signup"
+                        <button type="submit" className="btn contact_submit_button primary_btn shadow" name="signup" id="signup"
                           onClick={contactForm} >Send Message</button>
                       </form>
 

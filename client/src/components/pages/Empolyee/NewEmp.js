@@ -90,7 +90,7 @@ const NewEmp = () => {
                                             required />
                                     </div>
 
-                                    <button type="submit" className="btn btn-primary form-submit" name="signup" id="signup"
+                                    <button type="submit" className="btn btn-primary form-submit button_effect" name="signup" id="signup"
                                         onClick={PostData}
                                     >Add New</button>
                                 </form>

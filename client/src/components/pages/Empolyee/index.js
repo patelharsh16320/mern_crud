@@ -15,6 +15,8 @@ const Employee = () => {
   const Navigate = useNavigate();
 
   const fetchAllEmpData = async () => {
+    // ! sort by id show
+
     try {
       const res = await fetch('/employee', {
         method: "GET",
@@ -23,6 +25,7 @@ const Employee = () => {
           "Content-Type": "application/json",
         }
       });
+
       const data = await res.json();
       setEmployees(data);
 
@@ -80,50 +83,49 @@ const Employee = () => {
               <div className='card border-0 text-start'>
                 <div className='row'>
                   <div className='col-md-6 col-lg-6 col-12'>
-                    <h2>All Employees</h2>
+                    <h2 className="text-md-start text-center">All Employees</h2>
                   </div>
                   <div className='col-md-6 col-lg-6 col-12'>
-                    <p className='text-end'>
-                      <button className="btn btn-success form-submit form-submit" type="button" onClick={addNew}>Add New</button>
+                    <p className="text-md-end text-lg-en text-center">
+                      <button className="btn form-submit form-submit success_btn" type="button" onClick={addNew}>Add New</button>
                     </p>
                   </div>
                 </div>
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
-                      <th scope="col">ID</th>
-                      <th scope="col">Employee</th>
-                      <th scope="col">Mail</th>
-                      <th scope="col">Position</th>
-                      <th scope="col">Technology</th>
-                      <th scope="col">Update</th>
-                      <th scope="col">Delete</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {employees.map((props) => {
-                      const { _id, emp_id, name, position, technology, email } = props;
-                      return <>
-                        <tr key={_id}>
-                          <th scope="row">{emp_id}</th>
-                          <td>{name}</td>
-                          <td><Link to={`mailto:${email}`} className='text-lowercase'>{email}</Link></td>
-                          <td className='text-capitalize'>{position}</td>
-                          <td className='text-capitalize'>{technology}</td>
-                          <td>
-                          {/* <button className="btn btn-primary form-submit form-submit" name='btnAddMore' value="Edit Profile"
-                            onClick={() => updateEmpData(_id)}
-                          ><FaEdit /></button> */}
-                          <Link to={`/employee/update/${_id}`}> <FaEdit /></Link>
-                          </td>
-                          <td><button className="btn btn-danger form-submit form-submit" type="button"
-                            onClick={() => delEmpData(_id, name)}
-                          ><FaTrashCan /></button></td>
-                        </tr>
-                      </>
-                    })}
-                  </tbody>
-                </table>
+                <div className='table-wrapper shadow'>
+                  <table className="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Employee</th>
+                        <th scope="col">Mail</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Technology</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {employees.map((props) => {
+                        const { _id, emp_id, name, position, technology, email } = props;
+                        return <>
+                          <tr key={_id}>
+                            <th scope="row">{emp_id}</th>
+                            <td>{name}</td>
+                            <td><Link to={`mailto:${email}`} className='text-lowercase'>{email}</Link></td>
+                            <td className='text-capitalize'>{position}</td>
+                            <td className='text-capitalize'>{technology}</td>
+                            <td>
+                              <Link to={`/employee/update/${_id}`}> <FaEdit /></Link>
+                            </td>
+                            <td><button className="btn btn-danger form-submit form-submit" type="button"
+                              onClick={() => delEmpData(_id, name)}
+                            ><FaTrashCan /></button></td>
+                          </tr>
+                        </>
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>

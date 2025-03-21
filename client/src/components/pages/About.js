@@ -76,8 +76,9 @@ const About = () => {
                             </div>
                         </div>
                         <div className='col-md-2'>
-                            <input type="submit" className='profile_edit_btn' name='btnAddMore' value="Edit Profile" onClick={updateData} />
-                            <button className='profile_edit_btn mt-3' type="button" onClick={deleteData}>Delete Profile</button>
+                            {/* <input type="submit" className='profile_edit_btn btn btn-dark button_effect_about' name='btnAddMore' value="Edit Profile" onClick={updateData} /> */}
+                            <button className='profile_edit_btn btn btn-dark button_effect_about mt-3' type="button" onClick={updateData}>Edit Profile</button>
+                            <button className='profile_edit_btn btn btn-dark button_effect_about mt-3' type="button" onClick={deleteData}>Delete Profile</button>
                         </div>
                     </div>
 
